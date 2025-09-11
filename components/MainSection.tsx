@@ -37,9 +37,9 @@ const MainSection: React.FC = () => {
       >
         <div
           className="
-      max-w-6xl mx-auto   /* контейнер */
+      max-w-6xl mx-auto  
       text-center
-      lg:text-left lg:pl-40  /* лёгкое смещение вправо */
+      lg:text-left lg:pl-30 
     "
         >
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 text-white">
