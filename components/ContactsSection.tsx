@@ -88,7 +88,13 @@ export default function ContactsSection() {
                     </div>
                     <div>
                       <p className="text-lg font-medium text-gray-200">
-                        Години роботи: {contactInfo.hours}
+                        <span className="lg:hidden">
+                          Графік роботи:
+                          <br />з 9:00 по 22:00
+                        </span>
+                        <span className="hidden lg:inline">
+                          Графік роботи: з 9:00 по 22:00
+                        </span>
                       </p>
                       <p className="text-sm text-gray-400 mt-1">
                         Щоденно, без вихідних
