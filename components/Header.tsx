@@ -22,7 +22,7 @@ export default function Header() {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
-  // 🔥 Логика отслеживания секций
+  // Логика отслеживания секций
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
     sections.forEach((id) => {
@@ -47,11 +47,17 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-[#2e2921] shadow-md z-50">
-      <div className="flex items-center justify-between px-4 py-3 md:px-6 md:py-4">
+    <header
+      className="
+      w-full bg-[#2e2921] shadow-md z-50 
+      relative   /* базовое поведение для мобил */
+      md:sticky md:top-0 /* липкий только на десктопе */
+    "
+    >
+      <div className="flex items-center justify-between px-6 py-5 md:px-6 md:py-4">
         {/* Лого */}
         <a href="#main">
-          <Image src="/logo.png" alt="Logo" width={150} height={75} priority />
+          <Image src="/logo.png" alt="Logo" width={125} height={62} priority />
         </a>
 
         {/* Десктопное меню */}
@@ -77,7 +83,7 @@ export default function Header() {
             </a>
           ))}
           {/* Золотистая полоска снизу */}
-          <span className="absolute bottom-0 -left-5 w-full h-[4px] bg-gradient-to-r from-transparent via-[#5a532c] to-transparent" />
+          <span className="absolute bottom-0 left-0 w-full h-[4px] bg-gradient-to-r from-transparent via-[#5a532c] to-transparent" />
         </nav>
 
         {/* Кнопка для десктопа */}
