@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 
 // Тип для об'єкта новини
@@ -33,35 +33,6 @@ const initialNewsItems: NewsItem[] = [
 
 export default function NewsSection() {
   const [newsItems] = useState<NewsItem[]>(initialNewsItems);
-  const [isAdmin, setIsAdmin] = useState(false);
-
-  // Ця функція буде завантажувати дані з API
-  const fetchNews = async () => {
-    try {
-      console.log('Завантаження новин...');
-    } catch (error) {
-      console.error('Помилка при завантаженні новин:', error);
-    }
-  };
-
-  useEffect(() => {
-    fetchNews();
-
-    // Запускаємо режим адміністратора з консолі
-    const toggleAdminMode = () => {
-      setIsAdmin((current) => !current);
-      console.log(
-        `Режим адміністратора: ${!isAdmin ? 'УВІМКНЕНО' : 'ВИМКНЕНО'}`
-      );
-    };
-
-    (window as any).toggleAdminMode = toggleAdminMode;
-
-    // Cleanup function
-    return () => {
-      delete (window as any).toggleAdminMode;
-    };
-  }, []);
 
   return (
     <section
@@ -100,18 +71,6 @@ export default function NewsSection() {
                 </h3>
                 <p className="text-sm text-gray-400 mb-4">{news.date}</p>
                 <p className="text-base text-gray-200">{news.description}</p>
-
-                {/* Кнопки для адміністратора */}
-                {isAdmin && (
-                  <div className="mt-4 flex space-x-4">
-                    <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
-                      Редагувати
-                    </button>
-                    <button className="bg-red-500 text-white px-4 py-2 rounded-lg">
-                      Видалити
-                    </button>
-                  </div>
-                )}
               </div>
             </article>
           ))}
