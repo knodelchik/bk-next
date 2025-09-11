@@ -25,7 +25,7 @@ export function AnimatedButton({
       variant="default"
       size="hero"
       className={cn(
-        'group flex items-center relative justify-center max-w-fit',
+        'group flex items-center relative justify-center max-w-fit cursor-pointer',
         className
       )}
     >

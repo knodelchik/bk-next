@@ -103,7 +103,7 @@ export default function AboutSection() {
                   className="absolute bottom-6 left-1/2 -translate-x-1/2 md:top-3/4 md:left-8 md:translate-x-0 md:-translate-y-1/2 w-[90%] md:h-[39%] md:max-w-lg p-4 md:p-6 text-center md:text-left rounded-2xl overflow-hidden"
                 >
                   {/* Фон з плавним переходом */}
-                  <div className="absolute inset-0 rounded-2xl bg-black/50 backdrop-blur-md shadow-[inset_0_0_40px_rgba(0,0,0,0.9)]" />
+                  <div className="absolute inset-0 rounded-2xl bg-black/10 backdrop-blur-md shadow-[inset_0_0_40px_rgba(0,0,0,0.9)]" />
 
                   <div className="relative">
                     <p className="text-white text-lg sm:text-xl md:text-4xl font-semibold">
@@ -126,7 +126,7 @@ export default function AboutSection() {
         {/* Стрілка назад */}
         <button
           onClick={() => emblaApi && emblaApi.scrollPrev()}
-          className="p-2 border border-[#c5c18d]/50 rounded-full text-[#c5c18d] hover:bg-[#c5c18d] hover:text-black transition-all duration-300"
+          className="p-2 border border-[#c5c18d]/50 rounded-full text-[#c5c18d] hover:bg-[#c5c18d] hover:text-black transition-all duration-300 cursor-pointer"
         >
           <ChevronLeft size={20} />
         </button>
@@ -137,7 +137,7 @@ export default function AboutSection() {
             <button
               key={idx}
               onClick={() => scrollTo(idx)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${selectedIndex === idx ? "bg-[#c5c18d]" : "bg-[#5a532c]/60"
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${selectedIndex === idx ? "bg-[#c5c18d]" : "bg-[#5a532c]/60 cursor-pointer"
                 }`}
             />
           ))}
@@ -146,7 +146,7 @@ export default function AboutSection() {
         {/* Стрілка вперед */}
         <button
           onClick={() => emblaApi && emblaApi.scrollNext()}
-          className="p-2 border border-[#c5c18d]/50 rounded-full text-[#c5c18d] hover:bg-[#c5c18d] hover:text-black transition-all duration-300"
+          className="p-2 border border-[#c5c18d]/50 rounded-full text-[#c5c18d] hover:bg-[#c5c18d] hover:text-black transition-all duration-300 cursor-pointer"
         >
           <ChevronRight size={20} />
         </button>

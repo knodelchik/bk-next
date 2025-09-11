@@ -20,7 +20,7 @@ export function OrderButton({
       }}
       className={[
         className,
-        'px-4 py-2 text-lg font-medium text-white rounded-md transition bg-[#5a532c] hover:bg-[#746c3e]',
+        'px-4 py-2 text-lg font-medium text-white rounded-md transition bg-[#5a532c] hover:bg-[#746c3e] cursor-pointer',
       ].join(' ')}
       {...props}
     >

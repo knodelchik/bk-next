@@ -149,7 +149,7 @@ export default function PricesSection() {
                     onClick={() => setSelected(table)}
                     className={`snap-start md:snap-none min-w-[160px] md:min-w-0 ${active
                       ? "bg-[#145428] text-white shadow-md"
-                      : "bg-neutral-700/70 text-gray-200 hover:bg-neutral-600/80"
+                      : "bg-neutral-700/70 text-gray-200 hover:bg-neutral-600/80 cursor-pointer"
                       } px-4 py-3 rounded-lg text-sm md:text-base font-medium transition-colors`}
                     aria-pressed={active}
                   >

@@ -37,6 +37,7 @@ export default function MenuSection() {
             label="Переглянути меню"
             icon={<ChefHat className="size-4" />}
             href="/menu_restorana.pdf"
+            className='items-center bg-[#5a532c] hover:bg-[#746c3e] w-fit'
           />
         </div>
 
