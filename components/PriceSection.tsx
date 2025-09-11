@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { OrderButton } from "./OrderButton";
 import { Badge } from "@/components/ui/badge";
+import OrderModal from "./OrderModal";
 
 type TableType = {
   id: string;
@@ -66,6 +67,7 @@ const tables: TableType[] = [
 
 export default function PricesSection() {
   const [selected, setSelected] = useState<TableType>(tables[0]);
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section
@@ -124,11 +126,6 @@ export default function PricesSection() {
             />
           </div>
         </div>
-
-
-
-
-
 
         {/* Право: текст/кнопки/ціни */}
         <div className="flex-1 flex flex-col gap-6 items-center md:items-end text-center md:text-right w-full">
@@ -230,11 +227,12 @@ export default function PricesSection() {
           {/* Кнопка забронювати — вирівняна вправо (self-end) */}
           <div className="w-full flex justify-center md:justify-end mt-2">
             <div className="self-end">
-              <OrderButton className="px-8 py-3 mt-2 text-base md:text-lg bg-[#145428] rounded-lg hover:bg-emerald-800 transition shadow-md" />
+              <OrderButton onClickCallback={() => setModalOpen(true)} className="px-8 py-3 mt-2 text-base md:text-lg bg-[#145428] rounded-lg hover:bg-emerald-800 transition shadow-md" />
             </div>
           </div>
         </div>
       </div>
+      <OrderModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }

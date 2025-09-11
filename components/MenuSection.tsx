@@ -12,7 +12,7 @@ export default function MenuSection() {
                  bg-gradient-to-b from-[#3B332B] via-[#2c2620] to-[#221e1c] px-8 pb-16"
     >
       {/* Заголовок */}
-      <div className="flex items-center justify-center gap-6 mb-12 w-full container max-w-7xl">
+      <div className="flex items-center justify-center gap-6 mb-12 w-full container">
         <div className="flex-grow h-[2px] bg-[#5a532c] rounded-full" />
         <h2
           className="text-4xl font-bold text-[#c5c18d] text-center whitespace-nowrap"

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 // Тип для об'єкта новини
 interface NewsItem {
@@ -31,17 +32,12 @@ const initialNewsItems: NewsItem[] = [
 ];
 
 export default function NewsSection() {
-  const [newsItems, setNewsItems] = useState<NewsItem[]>(initialNewsItems);
+  const [newsItems] = useState<NewsItem[]>(initialNewsItems);
   const [isAdmin, setIsAdmin] = useState(false);
 
   // Ця функція буде завантажувати дані з API
   const fetchNews = async () => {
-    // Тут буде логіка завантаження даних з API.
-    // Поки що ми просто використовуємо існуючий масив.
     try {
-      // Приклад: const response = await fetch('/api/news');
-      // const data = await response.json();
-      // setNewsItems(data);
       console.log('Завантаження новин...');
     } catch (error) {
       console.error('Помилка при завантаженні новин:', error);
@@ -52,13 +48,20 @@ export default function NewsSection() {
     fetchNews();
 
     // Запускаємо режим адміністратора з консолі
-    (window as any).toggleAdminMode = () => {
+    const toggleAdminMode = () => {
       setIsAdmin((current) => !current);
       console.log(
         `Режим адміністратора: ${!isAdmin ? 'УВІМКНЕНО' : 'ВИМКНЕНО'}`
       );
     };
-  }, [isAdmin]);
+
+    (window as any).toggleAdminMode = toggleAdminMode;
+
+    // Cleanup function
+    return () => {
+      delete (window as any).toggleAdminMode;
+    };
+  }, []);
 
   return (
     <section
@@ -84,10 +87,11 @@ export default function NewsSection() {
               className="bg-[#4a4235] rounded-xl shadow-lg overflow-hidden transform transition-transform hover:scale-105 duration-300"
             >
               <div className="relative h-64 w-full">
-                <img
+                <Image
                   src={news.imageSrc}
                   alt={news.title}
-                  className="w-full h-full object-cover rounded-t-xl"
+                  fill
+                  className="object-cover rounded-t-xl"
                 />
               </div>
               <div className="p-6">

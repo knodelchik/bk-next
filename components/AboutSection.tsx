@@ -71,7 +71,7 @@ export default function AboutSection() {
   const scrollTo = (index: number) => emblaApi && emblaApi.scrollTo(index);
 
   return (
-    <section className="relative w-full pt-20 bg-gradient-to-b from-black via-[#171411] to-[#1C1917]">
+    <section id="about" className="relative w-full pt-20 bg-gradient-to-b from-black via-[#171411] to-[#1C1917]">
       {/* Заголовок */}
       <div className="flex container items-center justify-center gap-10 mx-auto mb-12">
         <div className="flex-grow h-[2px] bg-[#5a532c] rounded-full" />
@@ -100,7 +100,7 @@ export default function AboutSection() {
 
                 {/* Текстовий блок */}
                 <div
-                  className="absolute bottom-6 left-1/2 -translate-x-1/2 md:top-2/3 md:left-8 md:translate-x-0 md:-translate-y-1/2 w-[90%] md:h-[39%] md:max-w-lg p-4 md:p-6 text-center md:text-left rounded-2xl overflow-hidden"
+                  className="absolute bottom-6 left-1/2 -translate-x-1/2 md:top-3/4 md:left-8 md:translate-x-0 md:-translate-y-1/2 w-[90%] md:h-[39%] md:max-w-lg p-4 md:p-6 text-center md:text-left rounded-2xl overflow-hidden"
                 >
                   {/* Фон з плавним переходом */}
                   <div className="absolute inset-0 rounded-2xl bg-black/50 backdrop-blur-md shadow-[inset_0_0_40px_rgba(0,0,0,0.9)]" />
