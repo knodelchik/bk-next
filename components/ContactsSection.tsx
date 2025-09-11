@@ -97,7 +97,7 @@ export default function ContactsSection() {
           </div>
 
           {/* Блок з картою */}
-          <div className="rounded-3xl border-3 border-[#5a532c] overflow-hidden shadow-xl w-full h-[300px] md:h-[450px]">
+          <div className="rounded-3xl border-3 border-[#5a532c] overflow-hidden shadow-xl w-150 h-113 hidden">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2643.66673021435!2d32.2094783!3d48.50128229999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d042a48fadb1ed%3A0x24db85739d92565c!2z0JHRltC70YzRj9GA0LTQvdC40Lkg0LrQu9GD0LEgItCh0LLQvtGP0Loi!5e0!3m2!1suk!2sua!4v1757256568393!5m2!1suk!2sua"
               width="600"

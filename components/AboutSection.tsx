@@ -121,8 +121,8 @@ export default function AboutSection() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-6 top-2/5 text-white" />
-        <CarouselNext className="right-6 top-2/5 text-white" />
+        <CarouselPrevious className="left-31/200 top-2/5 text-white" />
+        <CarouselNext className="right-1/6 top-2/5 text-white" />
       </Carousel>
     </section>
   );
