@@ -6,11 +6,12 @@ import { X } from 'lucide-react';
 type OrderModalProps = {
   open: boolean;
   onClose: () => void;
+  className?: string;
 };
 
-export default function OrderModal({ open, onClose }: OrderModalProps) {
+export default function OrderModal({ open, onClose, className }: OrderModalProps) {
   return (
-    <Transition appear show={open} as="div" className="relative z-50">
+    <Transition appear show={open} as="div" className={`relative z-50 ${className}`}>
       <Dialog onClose={onClose} className="relative z-50">
         {/* backdrop */}
         <Transition.Child

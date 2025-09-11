@@ -221,17 +221,17 @@ export default function PricesSection() {
           </div>
 
           {/* Кнопка забронювати — вирівняна вправо (self-end) */}
-          <div className="w-full flex justify-center md:justify-end mt-2">
+          <div className="w-full flex justify-end mt-2">
             <div className="self-end">
               <OrderButton
                 onClickCallback={() => setModalOpen(true)}
-                className="px-8 py-3 mt-2 text-base md:text-lg bg-[#145428] rounded-lg hover:bg-emerald-800 transition shadow-md"
+                className="px-8 py-3 mt-2 text-base md:text-lg bg-[#145428] rounded-lg hover:bg-emerald-800 transition shadow-md justify-end"
               />
             </div>
           </div>
         </div>
       </div>
-      <OrderModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <OrderModal className='' open={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }

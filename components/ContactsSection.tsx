@@ -24,7 +24,7 @@ export default function ContactsSection() {
   return (
     <section
       id="contacts"
-      className="py-16 bg-gradient-to-b from-[#2b251f] via-[#312a24] to-[#3B332B] text-white"
+      className="pb-8 bg-gradient-to-b from-[#2b251f] via-[#312a24] to-[#3B332B] text-white"
     >
       <div className="container mx-auto px-4">
         {/* Заголовок */}
