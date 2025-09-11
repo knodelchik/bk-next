@@ -9,50 +9,51 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    src: '/about4.png',
-    alt: 'Зал з більярдними столами',
-    text: 'Піраміда',
+    src: "/about4.png",
+    alt: "Зал з більярдними столами",
+    text: "Піраміда",
     about:
-      'Любителів класичної «російської піраміди» чекають просторі столи, високоякісні киї та комфортні умови для тривалих ігор. Тут можна як відточувати майстерність, так і проводити дружні матчі.',
-    buttonText: 'Детальніше',
+      "Любителів класичної «російської піраміди» чекають просторі столи, високоякісні киї та комфортні умови для тривалих ігор. Тут можна як відточувати майстерність, так і проводити дружні матчі.",
+    buttonText: "Детальніше",
   },
   {
-    src: '/about1.jpg',
-    alt: 'Компанія друзів',
-    text: 'Пул',
+    src: "/about1.jpg",
+    alt: "Компанія друзів",
+    text: "Пул",
     about:
-      'Наші столи для пулу створюють ідеальні умови як для новачків, так і для досвідчених гравців. Сучасне обладнання, професійне освітлення та затишна атмосфера допоможуть вам повністю зануритися у гру.',
-    buttonText: 'Детальніше',
+      "Наші столи для пулу створюють ідеальні умови як для новачків, так і для досвідчених гравців. Сучасне обладнання, професійне освітлення та затишна атмосфера допоможуть вам повністю зануритися у гру.",
+    buttonText: "Детальніше",
   },
   {
-    src: '/about5.png',
-    alt: 'Ресторан',
-    text: 'Ресторан',
+    src: "/about5.png",
+    alt: "Ресторан",
+    text: "Ресторан",
     about:
-      'Наш ресторан пропонує страви європейської та української кухні, приготовані з любов’ю та тільки зі свіжих продуктів. Це місце, де можна смачно поїсти після гри чи провести вечір у приємній компанії.',
-    buttonText: 'Детальніше',
+      "Наш ресторан пропонує страви європейської та української кухні, приготовані з любов’ю та тільки зі свіжих продуктів. Це місце, де можна смачно поїсти після гри чи провести вечір у приємній компанії.",
+    buttonText: "Детальніше",
   },
   {
-    src: '/about6.png',
-    alt: 'Бар',
-    text: 'Бар',
+    src: "/about6.png",
+    alt: "Бар",
+    text: "Бар",
     about:
-      'Затишний бар з великим вибором коктейлів, елітного алкоголю та безалкогольних напоїв. Тут кожен знайде щось на свій смак — від класичних поєднань до авторських міксів від наших барменів.',
-    buttonText: 'Детальніше',
+      "Затишний бар з великим вибором коктейлів, елітного алкоголю та безалкогольних напоїв. Тут кожен знайде щось на свій смак — від класичних поєднань до авторських міксів від наших барменів.",
+    buttonText: "Детальніше",
   },
   {
-    src: '/about7.png',
-    alt: 'Турніри',
-    text: 'Турніри',
+    src: "/about7.png",
+    alt: "Турніри",
+    text: "Турніри",
     about:
-      'Регулярні турніри для аматорів та професіоналів роблять клуб центром більярдного життя міста. Участь у змаганнях — це шанс перевірити свої сили, отримати новий досвід та завести нові знайомства.',
-    buttonText: 'Детальніше',
+      "Регулярні турніри для аматорів та професіоналів роблять клуб центром більярдного життя міста. Участь у змаганнях — це шанс перевірити свої сили, отримати новий досвід та завести нові знайомства.",
+    buttonText: "Детальніше",
   },
 ];
 
-
 export default function AboutSection() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 10000 })]);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 10000 }),
+  ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
@@ -67,15 +68,20 @@ export default function AboutSection() {
     };
   }, [emblaApi]);
 
-
   const scrollTo = (index: number) => emblaApi && emblaApi.scrollTo(index);
 
   return (
-    <section id="about" className="relative w-full pt-20 bg-gradient-to-b from-black via-[#171411] to-[#1C1917]">
+    <section
+      id="about"
+      className="relative w-full pt-20 bg-gradient-to-b from-black via-[#171411] to-[#1C1917]"
+    >
       {/* Заголовок */}
       <div className="flex container items-center justify-center gap-10 mx-auto mb-12">
         <div className="flex-grow h-[2px] bg-[#5a532c] rounded-full" />
-        <h2 className="text-4xl font-bold text-[#c5c18d] text-center" style={{ fontFamily: "Georgia, serif" }}>
+        <h2
+          className="text-4xl font-bold text-[#c5c18d] text-center"
+          style={{ fontFamily: "Georgia, serif" }}
+        >
           Про нас
         </h2>
         <div className="flex-grow h-[2px] bg-[#5a532c] rounded-full" />
@@ -100,23 +106,36 @@ export default function AboutSection() {
 
                 {/* Текстовий блок */}
                 <div
-                  className="absolute bottom-6 left-1/2 -translate-x-1/2 md:top-3/4 md:left-8 md:translate-x-0 md:-translate-y-1/2 w-[90%] md:h-[39%] md:max-w-lg p-4 md:p-6 text-center md:text-left rounded-2xl overflow-hidden"
-                >
-                  {/* Фон з плавним переходом */}
-                  <div className="absolute inset-0 rounded-2xl bg-black/10 backdrop-blur-md shadow-[inset_0_0_40px_rgba(0,0,0,0.9)]" />
+  className="
+    absolute
+    left-1/2 -translate-x-1/2
+    bottom-4
+    md:bottom-auto md:top-3/4 md:left-8 md:translate-x-0 md:-translate-y-1/2
+    w-[90%] md:max-w-lg
+    p-4 md:p-6
+    text-center md:text-left
+    rounded-2xl overflow-hidden
+  "
+>
 
-                  <div className="relative">
-                    <p className="text-white text-lg sm:text-xl md:text-4xl font-semibold">
-                      {slide.text}
-                    </p>
-                    <p className="text-gray-200 text-sm sm:text-base md:text-xl mt-2">
-                      {slide.about}
-                    </p>
-                  </div>
-                </div>
+  <div
+    className="
+      rounded-2xl p-5
+      bg-black/40 backdrop-blur-md
+      shadow-[inset_0_0_40px_rgba(0,0,0,0.6)]
+    "
+  >
+    <p className="text-white text-lg md:text-4xl font-semibold pb-2">
+      {slide.text}
+    </p>
+    <p className="text-gray-200 text-sm md:text-xl mt-2">
+      {slide.about}
+    </p>
+  </div>
+</div>
+
               </div>
             </div>
-
           ))}
         </div>
       </div>
@@ -126,7 +145,7 @@ export default function AboutSection() {
         {/* Стрілка назад */}
         <button
           onClick={() => emblaApi && emblaApi.scrollPrev()}
-          className="p-2 border border-[#c5c18d]/50 rounded-full text-[#c5c18d] hover:bg-[#c5c18d] hover:text-black transition-all duration-300 cursor-pointer"
+          className="p-2 border border-[#c5c18d]/50 rounded-full text-[#c5c18d] hover:bg-[#c5c18d] hover:text-black transition-all duration-300"
         >
           <ChevronLeft size={20} />
         </button>
@@ -137,8 +156,9 @@ export default function AboutSection() {
             <button
               key={idx}
               onClick={() => scrollTo(idx)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${selectedIndex === idx ? "bg-[#c5c18d]" : "bg-[#5a532c]/60 cursor-pointer"
-                }`}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                selectedIndex === idx ? "bg-[#c5c18d]" : "bg-[#5a532c]/60"
+              }`}
             />
           ))}
         </div>
@@ -146,12 +166,11 @@ export default function AboutSection() {
         {/* Стрілка вперед */}
         <button
           onClick={() => emblaApi && emblaApi.scrollNext()}
-          className="p-2 border border-[#c5c18d]/50 rounded-full text-[#c5c18d] hover:bg-[#c5c18d] hover:text-black transition-all duration-300 cursor-pointer"
+          className="p-2 border border-[#c5c18d]/50 rounded-full text-[#c5c18d] hover:bg-[#c5c18d] hover:text-black transition-all duration-300"
         >
           <ChevronRight size={20} />
         </button>
       </div>
-
     </section>
   );
 }
