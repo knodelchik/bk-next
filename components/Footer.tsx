@@ -124,7 +124,7 @@ export default function Footer() {
 
         {/* Нижня лінія */}
         <div className="mt-10 border-t border-[#5a532c]/40 pt-4 text-center text-sm text-[#9c9975]">
-          © {new Date().getFullYear()} Більярдний клуб "Свояк". Всі права
+          © {new Date().getFullYear()} Більярдний клуб {"\"Свояк\""}. Всі права
           захищено.
         </div>
       </div>

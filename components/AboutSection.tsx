@@ -1,15 +1,11 @@
-'use client';
+"use client";
 
-import Autoplay from 'embla-carousel-autoplay';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
-import Image from 'next/image';
-import { Button } from './ui/button';
+import Autoplay from "embla-carousel-autoplay";
+import { useState, useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Image from "next/image";
+import { Button } from "./ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
@@ -54,46 +50,46 @@ const slides = [
   },
 ];
 
+
 export default function AboutSection() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 10000 })]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    emblaApi.on("select", onSelect);
+    onSelect();
+
+    return (): void => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi]);
+
+
+  const scrollTo = (index: number) => emblaApi && emblaApi.scrollTo(index);
+
   return (
-    <section
-      id="about"
-      className="relative w-full h-screen pt-20 bg-gradient-to-b from-black via-[#171411] to-[#1C1917]"
-    >
+    <section className="relative w-full pt-20 bg-gradient-to-b from-black via-[#171411] to-[#1C1917]">
       {/* Заголовок */}
       <div className="flex container items-center justify-center gap-10 mx-auto mb-12">
         <div className="flex-grow h-[2px] bg-[#5a532c] rounded-full" />
-        <h2
-          className="text-4xl font-bold text-[#c5c18d] text-center"
-          style={{ fontFamily: 'Georgia, serif' }}
-        >
+        <h2 className="text-4xl font-bold text-[#c5c18d] text-center" style={{ fontFamily: "Georgia, serif" }}>
           Про нас
         </h2>
         <div className="flex-grow h-[2px] bg-[#5a532c] rounded-full" />
       </div>
 
-      <Carousel
-        opts={{
-          align: 'center',
-          loop: true,
-        }}
-        plugins={[
-          Autoplay({
-            stopOnInteraction: false,
-            stopOnMouseEnter: true,
-            stopOnFocusIn: true,
-            delay: 5000,
-          }),
-        ]}
-        className="w-full h-full"
-      >
-        <CarouselContent>
+      {/* Embla Carousel */}
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
           {slides.map((slide, index) => (
-            <CarouselItem
+            <div
               key={index}
-              className="basis-[90%] md:basis-[70%] px-4 relative"
+              className="relative flex-[0_0_100%] sm:flex-[0_0_90%] md:flex-[0_0_70%] px-2 sm:px-4"
             >
-              <div className="relative w-full h-[80vh] rounded-2xl overflow-hidden shadow-lg border-2 border-[#5a532c]/40">
+              <div className="relative w-full h-[60vh] md:h-[80vh] rounded-2xl overflow-hidden shadow-lg border-2 border-[#5a532c]/40">
                 <Image
                   src={slide.src}
                   alt={slide.alt}
@@ -101,29 +97,61 @@ export default function AboutSection() {
                   className="object-cover"
                   priority={index === 0}
                 />
-                {/* Текст поверх картинки */}
-                <div className="absolute inset-0 flex flex-col justify-center items-start p-12 bg-black/40">
-                  <p className="max-w-xl pb-4 text-white text-2xl md:text-4xl font-semibold drop-shadow-lg">
-                    {slide.text}
-                  </p>
-                  <p className="max-w-xl text-gray-200 text-base md:text-xl drop-shadow-lg">
-                    {slide.about}
-                  </p>
-                  <Button
-                    className="mt-6 text-white border-0 bg-neutral-700 hover:bg-neutral-600"
-                    variant="outline"
-                    size="lg"
-                  >
-                    {slide.buttonText}
-                  </Button>
+
+                {/* Текстовий блок */}
+                <div
+                  className="absolute bottom-6 left-1/2 -translate-x-1/2 md:top-2/3 md:left-8 md:translate-x-0 md:-translate-y-1/2 w-[90%] md:h-[39%] md:max-w-lg p-4 md:p-6 text-center md:text-left rounded-2xl overflow-hidden"
+                >
+                  {/* Фон з плавним переходом */}
+                  <div className="absolute inset-0 rounded-2xl bg-black/50 backdrop-blur-md shadow-[inset_0_0_40px_rgba(0,0,0,0.9)]" />
+
+                  <div className="relative">
+                    <p className="text-white text-lg sm:text-xl md:text-4xl font-semibold">
+                      {slide.text}
+                    </p>
+                    <p className="text-gray-200 text-sm sm:text-base md:text-xl mt-2">
+                      {slide.about}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </CarouselItem>
+            </div>
+
           ))}
-        </CarouselContent>
-        <CarouselPrevious className="left-31/200 top-2/5 text-white" />
-        <CarouselNext className="right-1/6 top-2/5 text-white" />
-      </Carousel>
+        </div>
+      </div>
+
+      {/* Стрілочки і dots під слайдером */}
+      <div className="flex items-center justify-center mt-6 space-x-3">
+        {/* Стрілка назад */}
+        <button
+          onClick={() => emblaApi && emblaApi.scrollPrev()}
+          className="p-2 border border-[#c5c18d]/50 rounded-full text-[#c5c18d] hover:bg-[#c5c18d] hover:text-black transition-all duration-300"
+        >
+          <ChevronLeft size={20} />
+        </button>
+
+        {/* Точки */}
+        <div className="flex space-x-2">
+          {slides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => scrollTo(idx)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${selectedIndex === idx ? "bg-[#c5c18d]" : "bg-[#5a532c]/60"
+                }`}
+            />
+          ))}
+        </div>
+
+        {/* Стрілка вперед */}
+        <button
+          onClick={() => emblaApi && emblaApi.scrollNext()}
+          className="p-2 border border-[#c5c18d]/50 rounded-full text-[#c5c18d] hover:bg-[#c5c18d] hover:text-black transition-all duration-300"
+        >
+          <ChevronRight size={20} />
+        </button>
+      </div>
+
     </section>
   );
 }

@@ -51,7 +51,7 @@ export default function Header() {
       <div className="flex items-center justify-between px-4 py-3 md:px-6 md:py-4">
         {/* Лого */}
         <a href="#main">
-          <Image src="/logo.png" alt="Logo" width={100} height={50} priority />
+          <Image src="/logo.png" alt="Logo" width={150} height={75} priority />
         </a>
 
         {/* Десктопное меню */}
@@ -77,7 +77,7 @@ export default function Header() {
             </a>
           ))}
           {/* Золотистая полоска снизу */}
-          <span className="absolute bottom-0 left-0 w-full h-[4px] bg-gradient-to-r from-transparent via-[#5a532c] to-transparent" />
+          <span className="absolute bottom-0 -left-5 w-full h-[4px] bg-gradient-to-r from-transparent via-[#5a532c] to-transparent" />
         </nav>
 
         {/* Кнопка для десктопа */}
