@@ -197,7 +197,7 @@ export default function MobileHeader({
                   href="tel:+380991112233"
                   className="text-gray-300 hover:text-[#c5c18d] transition-colors duration-200 font-medium"
                 >
-                  +38 (099) 111 22 33
+                  +38 (099) 280 99 07
                 </a>
               </div>
 

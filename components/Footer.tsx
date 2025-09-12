@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { Facebook, Instagram, Phone, MapPin, Clock } from 'lucide-react';
-import { useState } from 'react';
+import Image from "next/image";
+import { Facebook, Instagram, Phone, MapPin, Clock } from "lucide-react";
+import { useState } from "react";
 
 export default function Footer() {
   const [copied, setCopied] = useState(false);
-  const phoneNumber = '+380 (67) 123 45 67';
+  const phoneNumber = "+380 (99) 280 99 07";
 
   const copyPhoneNumber = async () => {
     try {
-      await navigator.clipboard.writeText(phoneNumber.replace(/\s|\(|\)/g, ''));
+      await navigator.clipboard.writeText(phoneNumber.replace(/\s|\(|\)/g, ""));
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy phone number:', err);
+      console.error("Failed to copy phone number:", err);
     }
   };
 
@@ -51,30 +51,33 @@ export default function Footer() {
                   href="https://maps.google.com/?q=48.50128229999999,32.2094783"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 text-sm text-gray-300 hover:text-[#c5c18d] transition-colors duration-300 cursor-pointer group"
                   title="Відкрити в Google Maps"
+                  className="inline-flex items-start gap-2 text-sm text-gray-300 hover:text-[#c5c18d] transition-colors duration-300 cursor-pointer group"
                 >
-                  <MapPin
-                    size={16}
-                    className="flex-shrink-0 group-hover:text-[#c5c18d]"
-                  />
-                  <span>м. Кропивницький, вул. Велика Перспективна, 21</span>
+                  {/* Іконка не зменшується */}
+                  <MapPin size={16} className="flex-shrink-0" />
+
+                  {/* Текст переноситься на новий рядок, якщо не влізає */}
+                  <span className="break-words flex-grow-0">
+                    м. Кропивницький, вул. Велика Перспективна, 21
+                  </span>
                 </a>
+
                 <div className="w-full flex justify-center">
                   <button
                     onClick={copyPhoneNumber}
                     className="flex items-center gap-2 text-sm text-gray-300 hover:text-[#c5c18d] transition-colors duration-300 cursor-pointer group"
                     title={
-                      copied ? 'Скопійовано!' : 'Натисніть, щоб скопіювати'
+                      copied ? "Скопійовано!" : "Натисніть, щоб скопіювати"
                     }
                   >
                     <Phone
                       size={16}
                       className={`flex-shrink-0 transition-colors ${
-                        copied ? 'text-[#a8b17a]' : 'group-hover:text-[#c5c18d]'
+                        copied ? "text-[#a8b17a]" : "group-hover:text-[#c5c18d]"
                       }`}
                     />
-                    <span className={copied ? 'text-[#a8b17a]' : ''}>
+                    <span className={copied ? "text-[#a8b17a]" : ""}>
                       {phoneNumber}
                     </span>
                     {copied && (
@@ -172,25 +175,31 @@ export default function Footer() {
                 href="https://maps.google.com/?q=48.50128229999999,32.2094783"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center md:justify-start gap-2 mb-2 text-gray-300 hover:text-[#c5c18d] transition-colors duration-300 cursor-pointer group"
                 title="Відкрити в Google Maps"
+                className="inline-flex items-start gap-2 text-sm text-gray-300 hover:text-[#c5c18d] transition-colors duration-300 cursor-pointer group"
               >
-                <MapPin size={18} className="group-hover:text-[#c5c18d]" />
-                <span>м. Кропивницький, вул. Велика Перспективна, 21</span>
+                {/* Іконка не зменшується */}
+                <MapPin size={16} className="flex-shrink-0" />
+
+                {/* Текст переноситься на новий рядок, якщо не влізає */}
+                <span className="break-words flex-grow-0">
+                  м. Кропивницький, вул. Юрія Коваленка, 6
+                </span>
               </a>
+
               <div className="w-full flex justify-center md:justify-start">
                 <button
                   onClick={copyPhoneNumber}
                   className="flex items-center gap-2 text-gray-300 hover:text-[#c5c18d] transition-colors duration-300 cursor-pointer group"
-                  title={copied ? 'Скопійовано!' : 'Натисніть, щоб скопіювати'}
+                  title={copied ? "Скопійовано!" : "Натисніть, щоб скопіювати"}
                 >
                   <Phone
                     size={18}
                     className={`transition-colors ${
-                      copied ? 'text-[#a8b17a]' : 'group-hover:text-[#c5c18d]'
+                      copied ? "text-[#a8b17a]" : "group-hover:text-[#c5c18d]"
                     }`}
                   />
-                  <span className={copied ? 'text-[#a8b17a]' : ''}>
+                  <span className={copied ? "text-[#a8b17a]" : ""}>
                     {phoneNumber}
                   </span>
                   {copied && (
